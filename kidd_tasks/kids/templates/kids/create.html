@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create New Kid
+{% endblock %}
+
+{% block content %}
+    <h1>Create New Kid.</h1>
+    <form action="{% url "kids:create" %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Create new user</button>
+    </form>
+{% endblock %}
