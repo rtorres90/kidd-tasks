@@ -10,9 +10,18 @@
     </title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+        <form action="{% url "users:logout" %}" method="post">
+            {% csrf_token %}
+            <button>Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url "users:login" %}">Login</a>
+        <a href="{% url "users:create" %}">Create</a>
+    {% endif %}
     <main>
         {% block content %}
-            
+            <marquee behavior="" direction="">Welcome</marquee>
         {% endblock %}
     </main>
 </body>
