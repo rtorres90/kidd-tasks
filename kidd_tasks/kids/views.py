@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from . import forms
+from .models import Kid
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def create_view(request):
@@ -13,3 +15,9 @@ def create_view(request):
     else:
         form = forms.CreateKid()
     return render(request, 'kids/create.html', {'form': form})
+
+@login_required(login_url='/users/login')
+def list_view(request):
+    if request.user:
+        kids = Kid.objects.all().filter(tutor=request.user)
+    return render(request, 'kids/list.html', {'kids': kids})

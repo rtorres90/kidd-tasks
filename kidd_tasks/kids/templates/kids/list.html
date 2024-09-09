@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My kids
+{% endblock %}
+
+{% block content %}
+    <h1>My Kids.</h1>
+    <table>
+        {% for kid in kids %}
+            <tr>
+                <td>
+                    {{ kid.first_name }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
