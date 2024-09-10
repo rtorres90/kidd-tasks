@@ -6,9 +6,9 @@
 
 {% block content %}
     <h1>Create New Kid.</h1>
-    <form action="{% url "kids:create" %}" method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" class="btn btn-success">Create new user</button>
+        <button type="submit" class="btn btn-success">Save Changes</button>
     </form>
 {% endblock %}

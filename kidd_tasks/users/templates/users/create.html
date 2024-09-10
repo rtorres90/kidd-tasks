@@ -9,6 +9,6 @@
     <form action="{% url "users:create" %}" method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Create new user</button>
+        <button type="submit" class="btn btn-success">Create new user</button>
     </form>
 {% endblock %}
