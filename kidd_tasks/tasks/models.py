@@ -1,6 +1,6 @@
 from django.db import models
 
-from kidd_tasks.kids.models import Kid
+from kids.models import Kid
 
 
 class Tag(models.Model):
