@@ -8,7 +8,7 @@
     <h1>Create Task.</h1>
     <form action="{% url "tasks:create" %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_p }}
         <button type="submit" class="btn btn-success">Create new user</button>
     </form>
 {% endblock %}

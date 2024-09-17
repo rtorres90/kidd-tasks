@@ -1,35 +1,19 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    My kids
+    Tasks
 {% endblock %}
 
 {% block content %}
-    <h1>My Kids.</h1>
+    <h1>My Kids' Tasks.</h1>
     <table class="table table-striped">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Nickname</th>
-            <th>Date of Birth</th>
-            <th>Edit</th>
+            <th>Name</th>
         </tr>
-        {% for kid in kids %}
+        {% for task in tasks %}
             <tr>
                 <td>
-                    {{ kid.first_name }}
-                </td>
-                <td>
-                    {{ kid.last_name }}
-                </td>
-                <td>
-                    {{ kid.nickname }}
-                </td>
-                <td>
-                    {{ kid.dob }}
-                </td>
-                <td>
-                    <a href="{% url "kids:edit" kid.id%}" class="btn btn-info">Edit</a>
+                    {{ task.name }}
                 </td>
             </tr>
         {% endfor %}

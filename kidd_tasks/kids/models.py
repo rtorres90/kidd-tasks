@@ -7,3 +7,6 @@ class Kid(models.Model):
     nickname = models.CharField(max_length=20)
     dob = models.DateTimeField()
     tutor = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'

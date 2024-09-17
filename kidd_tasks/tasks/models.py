@@ -14,5 +14,8 @@ class Task(models.Model):
         help_text="Difficulty of the task, from 1 to 5 starts."
     )
     description = models.TextField(max_length=100)
+    status = models.BooleanField(default=False)
+    count = models.IntegerField(default=0)
+
     tags = models.ManyToManyField(Tag, related_name='tasks') 
     kid = models.ForeignKey(Kid, on_delete=models.CASCADE)
