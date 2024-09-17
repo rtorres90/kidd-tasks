@@ -6,14 +6,27 @@
 
 {% block content %}
     <h1>My Kids' Tasks.</h1>
+    <form method="POST" action="{% url 'tasks:list' %}">
+        {% csrf_token %}
+        <select class="form-select" id="kid-filter" name="kid" onchange="this.form.submit()">
+            <option value="All" {% if selected_kid == 'All' %}selected{% endif %} >Show all</option>
+            {% for kid in kids %}
+                <option value="{{kid.id}}" {% if selected_kid == kid.id %}selected{% endif %}>{{ kid.first_name }} {{ kid.last_name }}</option>
+            {% endfor %}
+        </select>
+    </form>
     <table class="table table-striped">
         <tr>
             <th>Name</th>
+            <th>Edit</th>
         </tr>
         {% for task in tasks %}
             <tr>
                 <td>
                     {{ task.name }}
+                </td>
+                <td>
+                    <a href="{% url "tasks:edit" task.id%}" class="btn btn-info">Edit</a>
                 </td>
             </tr>
         {% endfor %}

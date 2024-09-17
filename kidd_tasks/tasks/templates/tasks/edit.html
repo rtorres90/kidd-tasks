@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Create New Kid
+    Edit Task
 {% endblock %}
 
 {% block content %}
-    <h1>Create New Kid.</h1>
-    <form method="post">
+    <h1>Editing Task</h1>
+    <form action="{% url "tasks:edit" task.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-success">Save Changes</button>
