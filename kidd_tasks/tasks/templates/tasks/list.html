@@ -6,6 +6,7 @@
 
 {% block content %}
     <h1>My Kids' Tasks.</h1>
+    <a href="{% url "tasks:create"%}" class="btn btn-info">Create new task</a>
     <form method="POST" action="{% url 'tasks:list' %}">
         {% csrf_token %}
         <select class="form-select" id="kid-filter" name="kid" onchange="this.form.submit()">
